@@ -1,16 +1,18 @@
-#Realization of ping using raw socket ———— Page 584, UNIX network programming
+# Realization of ping using raw socket ———— Page 584, UNIX network programming
 
-##Summary of msghdr and cmsghdr
+## Summary of msghdr and cmsghdr
+
 [引用](https://my.oschina.net/NGINX08/blog/114140)
-###1. descriptor pass
+
+### 1. descriptor pass
 - After fork() return, child processes share all file descriptors opened of the parent processes.
 - After the call of exec(), all file descriptors usually keep unchanged.
 - *Problem*: 
 1. child process pass the descriptor to its parent process?
 2. pass the descriptor between two uncorrelated processes?
-- **create an UNIX domain socket between two processes, and use sendmsg() to send a specific message across a socket ** 
-###2. regular descriptor pass
-####struct msghdr:
+- **create an UNIX domain socket between two processes, and use sendmsg() to send a specific message across a socket** 
+### 2. regular descriptor pass
+#### struct msghdr:
 ```
 /*
  * s: fd of socket
