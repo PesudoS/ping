@@ -156,8 +156,10 @@ fd = *(int *)CMSG_DATA(mptr);
 **CMSG_NXTHDR()**
 - return pointer of the next accessory object
 - 2 param:
--		pointer that points to struct msghdr
--		pointer that points to current struct cmsghdr
+
+		pointer that points to struct msghdr
+
+		pointer that points to current struct cmsghdr
 
 
 
