@@ -12,6 +12,7 @@
 
 **Q**: usual git command  
 **A**: [git command list](http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
+![git SCH](http://www.ruanyifeng.com/blogimg/asset/2015/bg2015120901.png)
 ```
 $ git init
 $ git add .
