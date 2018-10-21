@@ -90,7 +90,7 @@ msg.msg_name = {sa_family_t = MY_AF_INET, sin_port = 0, sin_addr.s_addr = 172.16
 msg.msg_namelen = 16
 ```
 The echo request ICMP packet doesn't have port of the des address.  
-2. msg_iov/msg_iovlen
+2. msg_iov/msg_iovlen  
 record content of msg, msg_iov is a pointer that points to struct iovec. Actually, msg_iov should be an array of struct iovec. struct iovec is defined as follows:
 ```
 /*
@@ -112,7 +112,7 @@ msg.msg_len = 1
 ```
 3. msg_control/msg_controllen
 They can be used to send any control information.
-4. msg_flags
+4. msg_flags  
 
 #### struct cmsghdr
 Here we focus on the file descriptor and certificate structure. Before every object there exists a struct cmsghdr. After header, padding bytes, then the object itself. Finally, after the accessory object, maybe more padding bytes before next cmsghdr.
@@ -130,6 +130,7 @@ struct cmsghdr
     int 	  cmsg_type;
 };
 ```
+
 ##### some related macros
 **CMSG_LEN()**
 - accept object size as input param. It can be used to set cmsg_len. 
