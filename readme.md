@@ -89,7 +89,7 @@ In our ping example, introduce to struct msghdr of kernel:
 msg.msg_name = {sa_family_t = MY_AF_INET, sin_port = 0, sin_addr.s_addr = 172.16.48.1}
 msg.msg_namelen = 16
 ```
-The echo request ICMP packet doesn't have port of the des address.
+The echo request ICMP packet doesn't have port of the des address.  
 2. msg_iov/msg_iovlen
 record content of msg, msg_iov is a pointer that points to struct iovec. Actually, msg_iov should be an array of struct iovec. struct iovec is defined as follows:
 ```
@@ -101,8 +101,8 @@ record content of msg, msg_iov is a pointer that points to struct iovec. Actuall
  */
 struct iovec
 {
-	void __user *iov_base;
-	_kernel_size_t iov_len;
+    void __user *iov_base;
+    _kernel_size_t iov_len;
 };
 ```
 In our ping program:
@@ -125,15 +125,15 @@ Here we focus on the file descriptor and certificate structure. Before every obj
  */
 struct cmsghdr
 {
-	socklen_t cmsg_len;
-	int		  cmsg_level;
-	int 	  cmsg_type;
+    socklen_t cmsg_len;
+    int		  cmsg_level; 
+    int 	  cmsg_type;
 };
 ```
 ##### some related macros
 **CMSG_LEN()**
 - accept object size as input param. It can be used to set cmsg_len. 
-- ending padding bytes exclusive
+- ending padding bytes exclusive  
 **CMSG_SPACE()** 
 - compute total space that accessory data and its header need.
 - determine buff size
@@ -152,7 +152,7 @@ fd = *(int *)CMSG_DATA(mptr);
 **CMSG_FIRSTHDR()**
 - return a struct cmsghdr pointer that points to the first accessory object in the buff
 - ascertain if there exists accessory object according to msg_control/msg_controllen. If not, return NULL, otherwise point to the first struct cmsghdr
-- be used at the start point of for loop to traverse accessory objects.
+- be used at the start point of for loop to traverse accessory objects.  
 **CMSG_NXTHDR()**
 - return pointer of the next accessory object
 - 2 param:  
