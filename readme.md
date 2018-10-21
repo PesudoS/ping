@@ -127,7 +127,7 @@ struct cmsghdr
 {
 	socklen_t cmsg_len;
 	int		  cmsg_level;
-    int 	  cmsg_type;
+	int 	  cmsg_type;
 };
 ```
 ##### some related macros
@@ -155,11 +155,9 @@ fd = *(int *)CMSG_DATA(mptr);
 - be used at the start point of for loop to traverse accessory objects.
 **CMSG_NXTHDR()**
 - return pointer of the next accessory object
-- 2 param:
-
-		pointer that points to struct msghdr
-
-		pointer that points to current struct cmsghdr
+- 2 param:  
+		pointer that points to struct msghdr  
+		pointer that points to current struct cmsghdr  
 
 
 
